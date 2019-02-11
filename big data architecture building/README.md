@@ -1,6 +1,2 @@
-# big data architecture building mission
-> People who have built Big Data architecture together
-* Min Jae Jin (jmj8038@gmail.com)
-* Dong Ho Seo (seodh86@gmail.com)
-* Keon Hoon Lee (leekeonhoon@gmail.com)
-* Hyun Kyung Kim (sirver0324@gmail.com)
+# big data architecture building
+> 빅데이터 아키텍처 (하둡 분산 시스템) 구축 자료
