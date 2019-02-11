@@ -1,0 +1,36 @@
+<?php
+	session_start();
+
+	if(isset($_SESSION["crop_cnt"]))
+	{
+		$_SESSION["crop_cnt"] += 1;
+	}
+	else
+	{
+		$_SESSION["crop_cnt"] = 0;
+	}
+	$cnt = $_SESSION["crop_cnt"];
+	
+	isset($_POST["x"]) ? $p_x = $_POST["x"] : $p_x = false;
+	isset($_POST["y"]) ? $p_y = $_POST["y"] : $p_y = false;
+	isset($_POST["w"]) ? $p_w = $_POST["w"] : $p_w = false;
+	isset($_POST["h"]) ? $p_h = $_POST["h"] : $p_h = false;
+
+	//isset($_POST["img"]) ? $p_img = $_POST["img"] : $p_img = false; // 크롭 영역이 적용된 이미지?
+
+	isset($_GET['type1']) ? $g_type = $_GET['type1'] : $g_type = false;
+	isset($_GET['type2']) ? $g_srch_type = $_GET['type2'] : $g_srch_type = false;
+	isset($_GET['filePath']) ? $g_filePath = $_GET['filePath'] : $g_filePath = false;	
+
+	$p_img = "upload_img/".$g_filePath;	
+	$newpath = str_replace("original_", "cropped_".$cnt."_", $p_img);
+
+	$img_r = imagecreatefromjpeg($p_img);
+	$dst_r = ImageCreateTrueColor(128, 128);
+
+	imagecopyresampled($dst_r, $img_r, 0, 0, $p_x, $p_y, 128, 128, $p_w, $p_h);	
+	imagejpeg($dst_r, $newpath);
+
+	header("Location: crop_analyze.html?type1=".$g_type."&type2=".$g_srch_type."&filePath=".$g_filePath);
+?>
+

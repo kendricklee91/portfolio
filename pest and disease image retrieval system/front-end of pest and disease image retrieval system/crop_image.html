@@ -1,0 +1,99 @@
+<?php
+	isset($_GET['type1']) ? $type_big = $_GET['type1'] : $type_big = false;
+	isset($_GET['type2']) ? $type = $_GET['type2'] : $type = false;
+	isset($_GET['filePath']) ? $img = $_GET['filePath'] : $img = false;
+
+	if($type_big && $type && $img)
+	{
+		$img_path = "upload_img/".$img;
+?>
+<!DOCTYPE html>
+<html lang = "ko">
+<head>
+	<?php include_once('include/setHeader.html'); ?>
+	<link rel = "stylesheet" href = "css/Jcrop.css">
+	<script src="js/Jcrop.js"></script>
+</head>
+<body>
+	<div id = "image" class = "main">
+		<header class = "title-bar center">
+			<div class = "icon box-left">
+				<img class = "hand back" src = "img/back.png">
+			</div>
+
+			<span class = "title">상세 검색</span>
+			
+			<div class = "icon box-right">
+				<i class = "fa fa-bars hand drop-btn"></i>
+			</div>
+			
+			<aside class = "dropbox">
+				<a href = "index.html">홈으로 이동</a>
+				<a href = "select.html">작물 선택으로 이동</a>
+				<a href = "select_detail.html?type1=<?=$type_big?>">세부작물 선택으로 이동</a>
+				<a href = "image.html?type1=<?=$type_big?>&type2=<?=$type?>">이미지 변경</a>
+			</aside>
+		</header>
+
+		<nav class = "title-bar">
+			<span class = "alt">병해충 피해 부분을 <span class = "hidden-m">포함하게 아래 네모를</span>조절하세요</span>
+		</nav>
+		
+		<section>
+			<article class = "hand center" style = "max-width : 480px">
+				<div id = "crop-viewer">
+					<img src = "<?=$img_path?>" id = "cropbox">
+				</div>
+				
+				<div class = "crop-btn">
+					<form name = "crop">
+						<input type = "button" value = "상세 검색 시작" id = "submit" class = "hand" style = "display : block">
+						<input type = "hidden" name = "x">
+						<input type = "hidden" name = "y">
+						<input type = "hidden" name = "w">
+						<input type = "hidden" name = "h">
+						<input type = "hidden" name = "img" value = "<?=$img?>">
+					</form>
+				</div>
+			</article>
+		</section>
+	</div>
+</body>
+</html>
+<script>
+
+	$(document).ready(crop_image_init);
+</script>
+<?php
+	}
+	else if($type_big && $type)
+	{
+?>
+		<meta charset = "utf-8">
+		<script>
+			alert("세부 작물의 종류를 선택해주세요");
+			window.location.replace('select_detail.html?type1=<?=$type_big?>');
+		</script>
+<?php
+	}
+	else if($type_big && !$type)
+	{
+?>
+		<meta charset = "utf-8">
+		<script>
+			alert("세부 작물의 종류를 선택해주세요");
+			window.location.replace('select_detail.html?type1=<?=$type_big?>');
+		</script>
+<?php
+	}
+	else
+	{
+?>
+		<meta charset = "utf-8">
+		<script>
+			alert("작물의 종류를 선택해주세요");
+			window.location.replace('select.html');
+		</script>
+<?php		
+	}
+?>

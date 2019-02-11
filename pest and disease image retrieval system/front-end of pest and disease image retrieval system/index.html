@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang = "ko">
+<head>
+	<?php include_once('include/setHeader.html'); ?>
+</head>
+<body>
+	<div id = "index" class = "main">
+		<header>
+			<span>작물 질병 검색 시스템</span>
+		</header>
+
+		<section>
+			<div class = "logo">
+				<img class = "hand" src = "img/main.png"  onclick = "javascript:location.href='select.html';">
+			</div>
+			
+			<!-- <div class = "alt center">
+				<span>본 검색 시스템을 이용하여 특정한 병이 의심되면 반드시 해당 농업기술센터에 신고하여 정밀 진단을 받으셔야 합니다</span>
+			</div> -->
+		</section>
+
+		<footer>
+			<span class = "hand" onclick = "javascript:location.href='select.html';">시작하기</span>
+		</footer>
+	</div>
+</body>
+</html>
+<script>
+	$(document).ready(index_init);
+</script>

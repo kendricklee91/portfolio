@@ -1,0 +1,94 @@
+<?php
+	session_start();
+	$_SESSION["crop_cnt"] = 0;
+
+	isset($_GET['type1']) ? $type_big = $_GET['type1'] : $type_big = false;
+	isset($_GET['type2']) ? $type = $_GET['type2'] : $type = false;
+	
+	if($type_big && $type)
+	{
+?>
+<!DOCTYPE html>
+<html lang = "ko">
+<head>
+	<?php include_once('include/setHeader.html'); ?>
+</head>
+<body>
+	<div id = "image" class = "main">
+		<header class = "title-bar center">
+			<div class = "icon box-left">
+				<img class = "hand back" src = "img/back.png">
+			</div>
+
+			<span class = "title">영상 업로드 및 검색</span>
+			
+			<div class = "icon box-right">
+				<i class = "fa fa-bars hand drop-btn"></i>
+			</div>
+			
+			<aside class = "dropbox">
+				<a href = "index.html">홈으로 이동</a>
+				<a href = "select.html">작물 선택으로 이동</a>
+				<a href = "select_detail.html?type1=<?=$type1?>">세부작물 선택으로 이동</a>
+			</aside>
+		</header>
+
+		<nav class = "title-bar">
+			<span class = "alt">아래 영역에 검색할 이미지를 넣어주세요</span>
+		</nav>
+		
+		<section>
+			<article class = "hand center">
+				<div id = "viewer">
+					<div class = "txt">
+						<span>사진을 드래그해서 넣으시거나 찾아보기를 이용해 넣어주세요</span>
+					</div>
+
+					<div class = "img">
+						<img src = "img/gallery.png">
+					</div>
+				</div>
+
+				<div class = "box">
+					<input type = "file" id = "file">
+					<input type = "button" value = "검색 시작" id = "submit" class = "hand">
+				</div>
+
+				<div class = "mask"></div>
+
+				<div class = "load-box center">
+					<table>
+						<td><img src = "img/load.gif"></td>
+					</table>
+				</div>
+			</article>
+		</section>
+	</div>
+</body>
+</html>
+<script>
+	$(document).ready(image_init);
+</script>
+<?php
+	}
+	else if($type_big && !$type)
+	{
+?>
+		<meta charset = "utf-8">
+		<script>
+			alert("세부 작물의 종류를 선택해주세요");
+			window.location.replace('select_detail.html?type1=<?=$type_big?>');
+		</script>
+<?php
+	}
+	else
+	{
+?>
+		<meta charset = "utf-8">
+		<script>
+			alert("작물의 종류를 선택해주세요");
+			window.location.replace('select.html');
+		</script>
+<?php		
+	}
+?>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang = "ko">
+<head>
+	<?php include_once('include/setHeader.html'); ?>
+</head>
+<body>
+	<div id = "select" class = "main">
+		<header class = "title-bar center">
+			<div class = "icon box-left">
+				<img class = "hand back" src = "img/back.png">
+			</div>
+
+			<span class = "title">작물 선택</span>
+			
+			<div class = "icon box-right">
+				<i class = "fa fa-bars hand drop-btn"></i>
+			</div>
+			
+			<aside class = "dropbox">
+				<a href = "index.html">홈으로 이동</a>
+			</aside>
+		</header>
+
+		<nav class = "title-bar">
+			<span class = "alt">작물을 선택하세요</span>
+		</nav>
+		
+		<section class = "text-center">
+			<article class = "center hand">
+				<img class = "click" src = "img/fruit.jpg" alt = "과일">
+				<p>과일</p>
+			</article>
+
+			<article class = "center hand">
+				<img class = "click" src = "img/vegetable.jpg" alt = "채소">
+				<p>채소</p>
+			</article>
+			
+			<article class = "center hand">
+				<img class = "click" src = "img/flower.jpg" alt = "화훼">
+				<p>화훼</p>
+			</article>
+		</section>
+	</div>
+</body>
+</html>
+<script>
+	$(document).ready(select_init);
+</script>

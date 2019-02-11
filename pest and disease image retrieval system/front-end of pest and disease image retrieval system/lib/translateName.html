@@ -1,0 +1,703 @@
+<?php
+	function getTypeNameKor($type)
+	{
+		if($type == "pear")
+		{
+			return "배";
+		}
+		else if($type == "grape")
+		{
+			return "포도";
+		}
+		else if($type == "strawberry")
+		{
+			return "딸기";
+		}
+		else if($type == "pepper")
+		{
+			return "고추";
+		}
+		else if($type == "apple")
+		{
+			return "사과";
+		}
+		else if($type == "cucumber")
+		{
+			return "오이";
+		}
+		else if($type == "chrysanthemum")
+		{
+			return "국화";
+		}
+		return null;
+	}
+
+	function getTypeNameEng($type)
+	{
+		if($type == "배")
+		{
+			return "pear";
+		}
+		else if($type == "포도")
+		{
+			return "grape";
+		}
+		else if($type == "딸기")
+		{
+			return "strawberry";
+		}
+		else if($type == "고추")
+		{
+			return "pepper";
+		}
+		else if($type == "사과")
+		{
+			return "apple";
+		}
+		else if($type == "오이")
+		{
+			return "cucumber";
+		}
+		else if($type == "국화")
+		{
+			return "chrysanthemum";
+		}
+		return null;
+	}
+
+	function getDiseaseNameKor($switch_x)
+	{
+		switch ($switch_x)
+		{
+			case "leafspot":
+			  $switch_x = "갈색무늬병";
+			  break;
+			case "lycormadelicatula":
+			  $switch_x = "꽃매미";
+			  break;
+			case "downymildew":
+			  $switch_x = "노균병";
+			  break;
+			case "rust":
+			  $switch_x = "녹병";
+			  break;
+			case "whitemottle":
+			  $switch_x = "흰얼룩병";
+			  break;
+			case "pedunclerot":
+			  $switch_x = "꼭지마름병";
+			  break;
+			case "crowngall":
+			  $switch_x = "뿌리혹병";
+			  break;
+			case "anthracnose":
+			  $switch_x = "새눈무늬병";
+			  break;
+			case "graymold":
+			  $switch_x = "잿빛곰팡이병";
+			  break;
+			case "bitterrot":
+			  $switch_x = "탄저병";
+			  break;
+			case "berryrot":
+			  $switch_x = "큰송이썩은병";
+			  break;
+			// case "powderymildew":
+			//   $switch_x = "흰가루병";
+			//   break;
+			case "ricaniasp":
+			  $switch_x = "갈색날개매미충";
+			  break;
+			case "metcalfapruinosa":
+			  $switch_x = "미국선녀벌레";
+			  break;
+			case "sclerotiniarot":
+			  $switch_x = "균핵병";
+			  break;
+			case "pseudococcuscomstocki":
+			  $switch_x = "가루깍지벌레";
+			  break;
+			// case "lemadecempunctata":
+			//   $switch_x = "열점박이잎벌레";
+			//   break;
+			// case "paranthereneregalis":
+			//   $switch_x = "유리나방";
+			//   break;
+			// case "hyphatriacunea":
+			//   $switch_x = "흰불나방";
+			//   break;
+			case "borer":
+			  $switch_x = "나무좀";
+			  break;
+			// case "homalodiscacoagulata":
+			//   $switch_x = "매미충류";
+			//   break;
+			// case "acosmeryxnaga":
+			//   $switch_x = "박각시";
+			//   break;
+			// case "endoclytaexcrescens":
+			//   $switch_x = "박쥐나방";
+			//   break;
+			// case "lygocorislucorum":
+			//   $switch_x = "애무늬고리장님노린재"; // 여기까지 포도 (grape)
+			//   break;
+			case "panthracnose":
+			  $switch_x = "탄저병";
+			  break;
+			case "phytophthorablight":
+			  $switch_x = "역병";
+			  break;
+			case "southernstem":
+			  $switch_x = "흰비단병";
+			  break;
+			case "bacterialspot":
+			  $switch_x = "세균점무늬병";
+			  break;
+			case "powderymildew":
+			  $switch_x = "흰가루병";
+			  break;
+			case "tomatospottedwiltvirus":
+			  $switch_x = "토마토반점위조바이러스";
+			  break;
+			case "bacterialwilt":
+			  $switch_x = "풋마름병";
+			  break;
+			case "helicoverpaassulta":
+			  $switch_x = "담배나방";
+			  break;
+			// case "frankliniellaintonsa":
+			//   $switch_x = "대만총채벌레";
+			//   break;
+			// case "whitefly":
+			//   $switch_x = "온실가루이";
+			//   break;
+			case "spodopteraexigua":
+			  $switch_x = "파밤나방";
+			  break;
+			case "graymold":
+			  $switch_x = "잿빛곰팡이병";
+			  break;
+			case "dampingoff":
+			  $switch_x = "잘록병";
+			  break;
+			case "spodopteralitura":
+			  $switch_x = "담배거세미나방";
+			  break;
+			// case "halyomorphahalys":
+			//   $switch_x = "썩덩나무노린재";
+			//   break;
+			// case "nezaraantennatascott":
+			//   $switch_x = "풀색노린재";
+			//   break;
+			case "cmv":
+			  $switch_x = "오이모자이크바이러스";
+			  break;
+			case "pepmov":
+			  $switch_x = "고추얼룩바이러스";
+			  break;
+			// case "cercosporaleafspot":
+			//   $switch_x = "갈색점무늬병";
+			//   break;
+			// case "canker":
+			//   $switch_x = "궤양병";
+			//   break;
+			// case "softrot":
+			//   $switch_x = "무름병";
+			//   break;
+			// case "frankliniellaoccidentalis":
+			//   $switch_x = "꽃노랑총채벌레";
+			//   break;
+			// case "Bemisiatabaci":
+			//   $switch_x = "담배가루이";
+			//   break;
+			// case "Aphisgossypii":
+			//   $switch_x = "목화진딧물";
+			//   break;
+			// case "Myzuspersicae":
+			//   $switch_x = "복숭아혹진딧물";
+			//   break;
+			// case "rootknotnematodea":
+			//   $switch_x = "뿌리혹선충";
+			//   break;
+			// case "aulacorthumsolani":
+			//   $switch_x = "싸리수염진딧물";
+			//   break;
+			// case "helicoverpaarmigera":
+			//   $switch_x = "왕담배나방";
+			//   break;
+			// case "bradysiaagrestissasakawa":
+			//   $switch_x = "작은뿌리파리";
+			//   break;
+			// case "Tetranychusurticae":
+			//   $switch_x = "점박이응애";
+			//   break;
+			// case "dustmite":
+			//   $switch_x = "먼지응애"; // 여기까지 고추(pepper)
+			//   break;
+			case "fireblight":
+			  $switch_x = "화상병";
+			  break;
+			case "scab":
+			  $switch_x = "검은별무늬병";
+			  break;
+			case "blacknecroticleafspot":
+			  $switch_x = "잎검은점병";
+			  break;
+			case "psyllapyricolafoerster":
+			  $switch_x = "꼬마배나무이";
+			  break;
+			case "grapholitamolesta":
+			  $switch_x = "복숭아순나방"; //여기까지 배(pear)
+			  break;
+			// case "tsmv":
+			//   $switch_x = "TSWV(토마토반점위조바이러스)";
+			//   break;
+			case "wiltdisease":
+			  $switch_x = "반쪽시들음병";
+			  break;
+			case "phytophthorablight":
+			  $switch_x = "역병";
+			  break;
+			case "whiterust":
+			  $switch_x = "흰녹병"; // 여기까지 국화()
+			  break;
+			// case "zymv":
+			//   $switch_x = "ZYMV";
+			//   break;
+			// case "bfb":
+			//   $switch_x = "과일썩음병";
+			//   break;
+			// case "tyrophagusputrescentiae":
+			//   $switch_x = "긴털가루응애";
+			//   break;
+			case "downymildew":
+			  $switch_x = "노균병";
+			  break;
+			// case "diaphaniaindica":
+			//   $switch_x = "목화바둑명나방";
+			//   break;
+			// case "Aphisgossypii":
+			//   $switch_x = "목화진딧물";
+			//   break;
+			// case "aulacophoraindica":
+			//   $switch_x = "오이잎벌레";
+			//   break;
+			// case "whitefly":
+			//   $switch_x = "온실가루이";
+			//   break;
+			case "powderymildew":
+			  $switch_x = "흰가루병";
+			  break;
+			case "liriomyzatrifolii":
+			  $switch_x = "아메리카잎굴파리"; // 여기까지 오이(cucumber)
+			  break;
+			case "graymold":
+			  $switch_x = "잿빛곰팡이병";
+			  break;
+			case "powderymildew":
+			  $switch_x = "흰가루병";
+			  break;
+			case "blossomblight":
+			  $switch_x = "꽃곰팡이병";
+			  break;
+			case "phyllostictaleafspot":
+			  $switch_x = "뱀눈무늬병";
+			  break;
+			// case "smyev": 
+			//   $switch_x = "SMYEV";
+			//   break;
+			// case "wiltingdisease":
+			//   $switch_x = "시들음병";
+			//   break;
+			// case "spodopteralitura":
+			//   $switch_x = "담배거세미나방";
+			//   break;
+			// case "Tetranychusurticae":
+			//   $switch_x = "점박이응애";
+			//   break;
+			// case "Polyphagotarsonemuslatus":
+			//   $switch_x = "차먼지응애";
+			//   break;
+			case "anthracnose":
+			  $switch_x = "탄저병"; // 여기까지 딸기(strawberry)
+			  break;
+			case "fireblight":
+			  $switch_x = "화상병";
+			  break;
+			case "grapholitamolesta":
+			  $switch_x = "복숭아순나방"; // 여기까지 
+			  break;
+			default:
+			  $switch_x = "none";
+		}
+		//echo "<br> run final echo ";
+		return $switch_x;
+	}	
+
+	function getDiseaseNameEng($switch_x)
+	{
+		switch($switch_x)
+		{
+			case "갈색무늬병":
+				$switch_x = "leafspot";
+				break;
+
+			case "꽃매미":
+				$switch_x = "lycormadelicatula";
+				break;
+
+			case "노균병":
+				$switch_x = "downymildew";
+				break;
+
+			case "녹병":
+				$switch_x = "rust";
+				break;
+
+			case "흰얼룩병":
+				$switch_x = "whitemottle";
+				break;
+
+			case "꼭지마름병":
+				$switch_x = "pedunclerot";
+				break;
+
+			case "뿌리혹병":
+				$switch_x = "crowngall";
+				break;
+
+			case "새눈무늬병":
+				$switch_x = "anthracnose";
+				break;
+
+			case "잿빛곰팡이병":
+				$switch_x = "graymold";
+				break;
+
+			// case "탄저병":
+			// 	$switch_x = "bitterrot";
+			// 	break;
+
+			case "큰송이썩은병":
+				$switch_x = "berryrot";
+				break;
+
+			case "흰가루병":
+				$switch_x = "powderymildew";
+				break;
+
+			// case "갈색날개매미충":
+			// 	$switch_x = "ricaniasp";
+			// 	break;
+
+			case "미국선녀벌레":
+				$switch_x = "metcalfapruinosa";
+				break;
+
+			case "균핵병":
+				$switch_x = "sclerotiniarot";
+				break;
+
+			case "가루깍지벌레":
+				$switch_x = "pseudococcuscomstocki";
+				break;
+
+			// case "열점박이잎벌레":
+			// 	$switch_x = "lemadecempunctata";
+			// 	break;
+
+			// case "유리나방":
+			// 	$switch_x = "paranthereneregalis";
+			// 	break;
+
+			// case "흰불나방":
+			// 	$switch_x = "hyphatriacunea";
+			// 	break;
+
+			case "나무좀":
+				$switch_x = "borer";
+				break;
+
+			// case "매미충류":
+			// 	$switch_x = "homalodiscacoagulata";
+			// 	break;
+
+			// case "박각시":
+			// 	$switch_x = "acosmeryxnaga";
+			// 	break;
+
+			// case "박쥐나방":
+			// 	$switch_x = "endoclytaexcrescens";
+			// 	break;
+
+			// case "애무늬고리장님노린재":
+			// 	$switch_x = "lygocorislucorum";
+			// 	break;
+
+			// 여기까지 포도(grape)
+
+			case "탄저병":
+				$switch_x = "panthracnose";
+				break;
+
+			case "역병":
+				$switch_x = "phytophthorablight";
+				break;
+
+			case "흰비단병":
+				$switch_x = "southernstem";
+				break;
+
+			case "세균점무늬병":
+				$switch_x = "bacterialspot";
+				break;
+
+			case "흰가루병":
+				$switch_x = "powderymildew";
+				break;
+
+			case "토마토반점위조바이러스":
+				$switch_x = "tomatospottedwiltvirus";
+				break;
+
+			case "풋마름병":
+				$switch_x = "bacterialwilt";
+				break;
+
+			case "담배나방":
+				$switch_x = "helicoverpaassulta";
+				break;
+
+			// case "대만총채벌레":
+			// 	$switch_x = "frankliniellaintonsa";
+			// 	break;
+
+			// case "온실가루이":
+			// 	$switch_x = "whitefly";
+			// 	break;
+
+			case "파밤나방":
+				$switch_x = "spodopteraexigua";
+				break;
+
+			case "잿빛곰팡이병":
+				$switch_x = "graymold";
+				break;
+
+			case "잘록병":
+				$switch_x = "dampingoff";
+				break;
+
+			case "담배거세미나방":
+				$switch_x = "spodopteralitura";
+				break;
+
+			// case "썩덩나무노린재":
+			// 	$switch_x = "halyomorphahalys";
+			// 	break;
+
+			// case "풀색노린재":
+			// 	$switch_x = "nezaraantennatascott";
+			// 	break;
+
+			case "오이모자이크바이러스":
+				$switch_x = "cmv";
+				break;
+
+			case "고추얼룩바이러스":
+				$switch_x = "pepmov";
+				break;
+
+			// case "갈색점무늬병":
+			// 	$switch_x = "cercosporaleafspot";
+			// 	break;
+
+			// case "궤양병":
+			// 	$switch_x = "canker";
+			// 	break;
+
+			// case "무름병":
+			// 	$switch_x = "softrot";
+			// 	break;
+
+			// case "꽃노랑총채벌레":
+			// 	$switch_x = "frankliniellaoccidentalis";
+			// 	break;
+
+			// case "담배가루이":
+			// 	$switch_x = "Bemisiatabaci";
+			// 	break;
+
+			// case "목화진딧물":
+			// 	$switch_x = "Aphisgossypii";
+			// 	break;
+
+			// case "복숭아혹진딧물":
+			// 	$switch_x = "Myzuspersicae";
+			// 	break;
+
+			// case "뿌리혹선충":
+			// 	$switch_x = "rootknotnematodea";
+			// 	break;
+
+			// case "싸리수염진딧물":
+			// 	$switch_x = "aulacorthumsolani";
+			// 	break;
+
+			// case "왕담배나방":
+			// 	$switch_x = "helicoverpaarmigera";
+			// 	break;
+
+			// case "작은뿌리파리":
+			// 	$switch_x = "bradysiaagrestissasakawa";
+			// 	break;
+
+			// case "점박이응애":
+			// 	$switch_x = "Tetranychusurticae";
+			// 	break;
+
+			// case "먼지응애":
+			// 	$switch_x = "dustmite";
+			// 	break;
+
+			// 여기까지 고추(pepper)
+
+			case "화상병":
+				$switch_x = "fireblight";
+				break;
+
+			case "검은별무늬병":
+				$switch_x = "scab";
+				break;
+
+			case "잎검은점병":
+				$switch_x = "blacknecroticleafspot";
+				break;
+
+			case "꼬마배나무이":
+				$switch_x = "psyllapyricolafoerster";
+				break;
+
+			case "복숭아순나방":
+				$switch_x = "grapholitamolesta";
+				break;
+
+			// 여기까지 배(pear)
+
+			// case "TSWV(토마토반점위조바이러스)":
+			// 	$switch_x = "tsmv"; /* db에서 병명 확인 필요 */
+			// 	break;
+
+			case "반쪽시들음병":
+				$switch_x = "wiltdisease";
+				break;
+
+			case "역병":
+				$switch_x = "phytophthorablight";
+				break;
+
+			case "흰녹병":
+				$switch_x = "whiterust";
+				break;
+
+			// 여기까지 국화()
+
+			// case "ZYMV":
+			// 	$switch_x = "zymv";
+			// 	break;
+
+			// case "과일썩음병":
+			// 	$switch_x = "bfb";
+			// 	break;
+
+			// case "긴털가루응애":
+			// 	$switch_x = "tyrophagusputrescentiae";
+			// 	break;
+
+			case "노균병":
+				$switch_x = "downymildew";
+				break;
+
+			// case "목화바둑명나방":
+			// 	$switch_x = "diaphaniaindica";
+			// 	break;
+
+			// case "목화진딧물":
+			// 	$switch_x = "Aphisgossypii";
+			// 	break;
+
+			// case "오이잎벌레":
+			// 	$switch_x = "aulacophoraindica";
+			// 	break;
+
+			// case "온실가루이":
+			// 	$switch_x = "whitefly";
+			// 	break;
+
+			case "흰가루병":
+				$switch_x = "powderymildew";
+				break;
+
+			case "아메리카잎굴파리":
+				$switch_x = "liriomyzatrifolii";
+				break;
+
+			// 여기까지 오이(cucumber)
+
+			case "잿빛곰팡이병":
+				$switch_x = "graymold";
+				break;
+
+			case "흰가루병":
+				$switch_x = "powderymildew";
+				break;
+			case "뱀눈무늬병":
+				$switch_x = "phyllostictaleafspot";
+				break;
+
+			case "꽃곰팡이병":
+				$switch_x = "blossomblight";
+				break;
+				
+			// case "SMYEV":
+			// 	$switch_x = "smyev";
+			// 	break;			
+
+			// case "시들음병":
+			// 	$switch_x = "wiltingdisease";
+			// 	break;
+
+			// case "담배거세미나방":
+			// 	$switch_x = "spodopteralitura";
+			// 	break;
+
+			// case "점박이응애":
+			// 	$switch_x = "Tetranychusurticae";
+			// 	break;
+
+			// case "차먼지응애":
+			// 	$switch_x = "Polyphagotarsonemuslatus";
+			// 	break;
+
+			// case "탄저병":
+			// 	$switch_x = "anthracnose";
+			// 	break;
+
+			// 여기까지 딸기(strawberry)
+
+			case "화상병":
+				$switch_x = "fireblight";
+				break;
+
+			case "복숭아순나방":
+				$switch_x = "grapholitamolesta";
+				break;
+
+			// 여기까지 사과(apple)
+
+			default:
+				$switch_x = "none";
+		}
+		return $switch_x;
+	}
+?>
