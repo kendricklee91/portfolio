@@ -1,0 +1,8 @@
+<?php
+	function getPhysicsPath($page)
+	{
+		$file_server_path = realpath($page); // 기호링크('/', '/../')를 삭제하고 절대경로 반환
+		$php_filename = basename($page); // filename (basename 함수 : 경로를 제외한 파일 이름만 선택)
+		return str_replace($php_filename, "", $file_server_path); // 경로와 파일이름있는 변수에서 변수이름을 없음으로 치환
+	}
+?>

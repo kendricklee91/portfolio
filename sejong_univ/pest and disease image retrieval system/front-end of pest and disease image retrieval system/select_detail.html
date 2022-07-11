@@ -1,0 +1,119 @@
+<?php
+	isset($_GET['type1']) ? $type1 = $_GET['type1'] : $type1 = false;
+	if(!$type1)
+	{
+?>
+		<script>
+			alert("작물의 종류를 선택해주세요");
+			window.location.replace('select.html');
+		</script>
+<?php
+		exit(1);
+	}
+
+	if($type1 == "과일" || $type1 == "채소" || $type1 == "화훼")
+	{
+?>
+<!DOCTYPE html>
+<html lang = "ko">
+<head>
+	<?php include_once('include/setHeader.html'); ?>
+</head>
+<body>
+	<div id = "select_detail" class = "main">
+		<header class = "title-bar center">
+			<div class = "icon box-left">
+				<img class = "hand back" src = "img/back.png">
+			</div>
+
+			<span class = "title">세부 작물 선택</span>
+			
+			<div class = "icon box-right">
+				<i class = "fa fa-bars hand drop-btn"></i>
+			</div>
+			
+			<aside class = "dropbox">
+				<a href = "index.html">홈으로 이동</a>
+				<a href = "select.html">작물 선택으로 이동</a>
+			</aside>
+		</header>
+
+		<nav class = "title-bar">
+			<span class = "alt">세부 작물을 선택하세요</span>
+		</nav>
+		
+		<section class = "text-center">
+<?php
+		if($type1 == "과일")
+		{
+?>
+			<article class = "center hand img-select">
+				<img class = "click" src="img/strawberry.jpg" alt = "딸기"/>
+				<div style="clear:both;width:100%;display: block;">딸기</div>
+			</article>
+
+			<article class = "center hand img-select">
+				<img class = "click" src="img/pear.jpg" alt = "배">
+				<p>배</p>
+			</article>
+
+			<article class = "center hand img-select">
+				<img class = "click" src="img/apple.jpg" alt = "사과">
+				<p>사과</p>
+			</article>
+
+			<article class = "center hand img-select">
+				<img class = "click" src="img/grape.jpg" alt = "포도">
+				<p>포도</p>
+			</article>
+<?php
+		}
+		else if($type1 == "채소")
+		{
+?>
+			<article class = "center hand img-select">
+				<img class = "click" src="img/pepper.png" alt = "고추">
+				<p>고추</p>
+			</article>
+
+			<!-- <article class = "center hand img-select">
+				<img class = "click" src="img/cucumber.png" alt = "오이">
+			</article> -->
+
+			<!-- <article class = "center hand img-select">
+				<img class = "click" src="img/tomato.png" alt = "토마토">
+			</article> -->
+<?php
+		}
+		else if($type1 == "화훼")
+		{
+?>
+			<article class = "center hand img-select">
+				<img class = "click" src="img/chrysanthemum.png" alt = "국화">
+				<p>국화</p>
+			</article>
+
+			<!-- <article class = "center hand img-select">
+				<img class = "click" src="img/rose.png" alt = "장미">
+			</article>
+
+			<article class = "center hand img-select">
+				<img class = "click" src="img/cymbidium.png" alt = "심비디움">
+			</article>
+			
+			<article class = "center hand img-select">
+				<img class = "click" src="img/phalaenopsis.png" alt = "팔레놉시스">
+			</article> -->
+<?php
+		}
+?>		
+		</section>
+	</div>
+</body>
+</html>
+<script>
+	$(document).ready(select_detail_init);
+</script>
+<?php
+	}
+?>
