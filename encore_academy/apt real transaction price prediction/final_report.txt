@@ -1,0 +1,93 @@
+서울/부산 지역 아파트 실 거래가를 예측하는 모델 컴피티션
+
+1. 사용한 데이터 셋
+    (1) 제공받은 데이터 셋
+        1) train.csv
+        2) test.csv
+        3) schools.csv
+        4) subways.csv
+
+    (2) 추가한 데이터 셋
+        1) train.csv 내 법정동주소 데이터(코드번호)를 이용해 구체적인 아파트의 주소값 수집
+           * 공공데이터 건축물대장정보 서비스 (https://www.data.go.kr/dataset/15004825/openapi.do) - API 사용
+
+        2) 법정동코드 목록을 활용한 대략적인 주소 파악
+           * 법정동 코드 목록
+             - 행정표준코드관리시스템 (https://www.code.go.kr/stdcode/regCodeL.do)에서 '법정동 코드 전체자료 다운로드'
+
+        3) 위도, 경도를 활용한 상세 주소 파악
+           * Kakao Developer (https://developers.kakao.com/) map API 활용
+
+        4) 장소 데이터 수집
+           * Kakao Developer (https://developers.kakao.com/) REST API 로컬 (키워드로 장소 검색) 사용
+             - 대형마트 (code : MT1)
+             - 어린이집/유치원 (code : PS3)
+             - 학교 (code : SC4)
+             - 지하철역 (code : SW8)
+             - 공공기관 (code : PO3)
+             - 문화시설 (code : CT1)
+             - 병원 : (code : HP8)
+
+        5) 금융 데이터 수집 (2006.01 ~ 2018.11) - CSV / XSL 파일로 수집
+           * 한국은행 경제통계시스템 (https://ecos.bok.or.kr/)
+             - 환율
+             - 금리
+             - GDP
+             - 선행 / 동행 / 후행 지수
+
+           * 국가통계포털 (http://kosis.kr/index/index.do)
+             - 아파트 가격 매매지수
+
+           * 한국감정원 부동산 통계 정보 시스템 (http://www.r-one.co.kr/rone/)
+             - 아파트 거래량
+
+2. 예측 모델을 생성하기 위해 사용한 알고리즘
+    (1) Linear Regression
+    (2) Lasso Regression
+    (3) Ridge Regression
+    (4) Support Vector Regression
+    (5) Random Forest
+    (6) Deep Neural Network
+
+3. 최종적으로 선정한 알고리즘
+    Deep Neural Network (이하 DNN)를 제외한 알고리즘을 사용한 모델의 성능을 평가한 결과, 사용하기 어려운 점을 확인.
+    결론적으로 DNN을 사용해 layer, parameter 조정 등을 활용해 모델 생성
+    컴피티션에 제출한 결과 또한 DNN 모델을 사용한 결과
+
+4. 제출한 결과의 아쉬움 (문제점?)
+    DNN 모델에 test 데이터로 사용한 test_error.csv 파일 내 'heat_type' 컬럼의 데이터 중
+    일부 데이터가 번호 매핑이 잘 못 되어 있음을 컴피티션 마감 후 확인
+
+    code 상에서 매핑한 번호와 csv 파일 내에서 매핑한 번호가 달라, 최종 산출한 가격예측 값에서 nan값과 마이너스 값이 출력
+    이 부분을 간과하고 넘어간 점이 아쉬움
+
+* 비고
+    (1) adddatas/finance.csv
+        - 환율, 금리, GDP, 아파트 가격 매매지수, 아파트 거래량
+
+    (2) adddatas/enconomy_cycle.csv
+        - 선행 / 동행 / 후행 지수
+
+    (3) adddatas/govaddresscode.txt
+        - 법정동코드 전체자료
+
+    (4) datausingkakaoapi/merge_test_theater_subway_school_mart_kind_hospital_government.csv
+        - 문화시설, 지하철, 학교, 대형맡, 유치원, 병원, 공공기관의 거리값
+
+    (5) datausingkakaoapi/preprocessing.csv
+        - 기존 train.csv를 전처리한 csv 파일
+
+    (6) algorithmcodes/R/preprocessing_rocess.R
+        - 전처리, 차원축소, 최종분석한 R 파일
+
+    (7) algorithmcodes/R/lasso_regression.R
+        - lasso regression R 파일
+
+    (8) algorithmcodes/R/ridge_regression.R
+        - ridge regression R 파일
+
+    (9) algorithmcodes/Python/decisiontree, dnn, lasso, linear, randomforest, ridge, svr
+        - 각 알고리즘 별 실행 코드
+
+    (10) pptfiles/dnn_record_190131.pptx
+        - layer별로 생성한 dnn 모델의 테스트 결과들
