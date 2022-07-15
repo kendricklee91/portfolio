@@ -1,8 +1,0 @@
-version: '3'
-services:
-  irt-batch:
-    build: .
-    container_name: irt-batch
-    volumes:
-      - .:/data/irt/irt-batch
-    tty: true
