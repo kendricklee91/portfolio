@@ -1,0 +1,251 @@
+version: '3'
+services:
+  celery:
+    image: 183.110.210.106:5000/fm-api:latest
+    container_name: celery
+    ports:
+      - "5555:5555"
+    command: bash -c "cd /data/fm/fm-api && celery -A worker worker -c128 --max-tasks-per-child=1 --time-limit=300 --soft-time-limit=180 --loglevel=info"
+    environment:
+      - USER=celery
+      - TZ=Asia/Seoul
+    restart: unless-stopped
+    depends_on:
+      - rabbitmq
+      - fm-api-en-weak-lecture
+      - fm-api-en-weak-mat
+      - fm-api-ko-weak-lecture
+      - fm-api-ko-weak-mat
+      - fm-api-ma-prior
+      - fm-api-ma-weak-lecture
+      - fm-api-ma-weak-mat
+      - fm-api-so-weak-lecture
+      - fm-api-so-weak-mat
+      - fm-api-sc-weak-lecture
+      - fm-api-sc-weak-mat
+  fm-api-en-weak-lecture:
+    image: 183.110.210.106:5000/fm-api:latest
+    container_name: fm-api-en-weak-lecture
+    ports:
+      - "3001:3000"
+    command: bash -c "cd /data/fm/fm-api && python ./server.py"
+    environment:
+      - AI_FM_URL=/rs/en/weak/lecture
+      - AI_FM_SANIC_MODE=PRODUCTION
+      - AI_FM_DB_DBMS=mssql
+      - AI_FM_DB_HOST=192.168.150.30
+      - AI_FM_DB_PORT=1433
+      - AI_FM_DB_DB=HBEdu_App_Study
+      - AI_FM_DB_USER=AiSystem
+      - AI_FM_DB_PASSWD=Jn!@Ea_$$Aqll6J(JumkDq
+      - USER=fm
+      - TZ=Asia/Seoul
+    restart: unless-stopped
+    depends_on:
+      - rabbitmq
+  fm-api-en-weak-mat:
+    image: 183.110.210.106:5000/fm-api:latest
+    container_name: fm-api-en-weak-mat
+    ports:
+      - "3002:3000"
+    command: bash -c "cd /data/fm/fm-api && python ./server.py"
+    environment:
+      - AI_FM_URL=/rs/en/weak/mat
+      - AI_FM_SANIC_MODE=PRODUCTION
+      - AI_FM_DB_DBMS=mssql
+      - AI_FM_DB_HOST=192.168.150.30
+      - AI_FM_DB_PORT=1433
+      - AI_FM_DB_DB=HBEdu_App_Study
+      - AI_FM_DB_USER=AiSystem
+      - AI_FM_DB_PASSWD=Jn!@Ea_$$Aqll6J(JumkDq
+      - USER=fm
+      - TZ=Asia/Seoul
+    restart: unless-stopped
+    depends_on:
+      - rabbitmq
+  fm-api-ko-weak-lecture:
+    image: 183.110.210.106:5000/fm-api:latest
+    container_name: fm-api-ko-weak-lecture
+    ports:
+      - "3003:3000"
+    command: bash -c "cd /data/fm/fm-api && python ./server.py"
+    environment:
+      - AI_FM_URL=/rs/ko/weak/lecture
+      - AI_FM_SANIC_MODE=PRODUCTION
+      - AI_FM_DB_DBMS=mssql
+      - AI_FM_DB_HOST=192.168.150.30
+      - AI_FM_DB_PORT=1433
+      - AI_FM_DB_DB=HBEdu_App_Study
+      - AI_FM_DB_USER=AiSystem
+      - AI_FM_DB_PASSWD=Jn!@Ea_$$Aqll6J(JumkDq
+      - USER=fm
+      - TZ=Asia/Seoul
+    restart: unless-stopped
+    depends_on:
+      - rabbitmq
+  fm-api-ko-weak-mat:
+    image: 183.110.210.106:5000/fm-api:latest
+    container_name: fm-api-ko-weak-mat
+    ports:
+      - "3004:3000"
+    command: bash -c "cd /data/fm/fm-api && python ./server.py"
+    environment:
+      - AI_FM_URL=/rs/ko/weak/mat
+      - AI_FM_SANIC_MODE=PRODUCTION
+      - AI_FM_DB_DBMS=mssql
+      - AI_FM_DB_HOST=192.168.150.30
+      - AI_FM_DB_PORT=1433
+      - AI_FM_DB_DB=HBEdu_App_Study
+      - AI_FM_DB_USER=AiSystem
+      - AI_FM_DB_PASSWD=Jn!@Ea_$$Aqll6J(JumkDq
+      - USER=fm
+      - TZ=Asia/Seoul
+    restart: unless-stopped
+    depends_on:
+      - rabbitmq
+  fm-api-ma-prior:
+    image: 183.110.210.106:5000/fm-api:latest
+    container_name: fm-api-ma-prior
+    ports:
+      - "3005:3000"
+    command: bash -c "cd /data/fm/fm-api && python ./server.py"
+    environment:
+      - AI_FM_URL=/rs/ma/prior
+      - AI_FM_SANIC_MODE=PRODUCTION
+      - AI_FM_DB_DBMS=mssql
+      - AI_FM_DB_HOST=192.168.150.30
+      - AI_FM_DB_PORT=1433
+      - AI_FM_DB_DB=HBEdu_App_Study
+      - AI_FM_DB_USER=AiSystem
+      - AI_FM_DB_PASSWD=Jn!@Ea_$$Aqll6J(JumkDq
+      - USER=fm
+      - TZ=Asia/Seoul
+    restart: unless-stopped
+    depends_on:
+      - rabbitmq
+  fm-api-ma-weak-lecture:
+    image: 183.110.210.106:5000/fm-api:latest
+    container_name: fm-api-ma-weak-lecture
+    ports:
+      - "3006:3000"
+    command: bash -c "cd /data/fm/fm-api && python ./server.py"
+    environment:
+      - AI_FM_URL=/rs/ma/weak/lecture
+      - AI_FM_SANIC_MODE=PRODUCTION
+      - AI_FM_DB_DBMS=mssql
+      - AI_FM_DB_HOST=192.168.150.30
+      - AI_FM_DB_PORT=1433
+      - AI_FM_DB_DB=HBEdu_App_Study
+      - AI_FM_DB_USER=AiSystem
+      - AI_FM_DB_PASSWD=Jn!@Ea_$$Aqll6J(JumkDq
+      - USER=fm
+      - TZ=Asia/Seoul
+    restart: unless-stopped
+    depends_on:
+      - rabbitmq
+  fm-api-ma-weak-mat:
+    image: 183.110.210.106:5000/fm-api:latest
+    container_name: fm-api-ma-weak-mat
+    ports:
+      - "3007:3000"
+    command: bash -c "cd /data/fm/fm-api && python ./server.py"
+    environment:
+      - AI_FM_URL=/rs/ma/weak/mat
+      - AI_FM_SANIC_MODE=PRODUCTION
+      - AI_FM_DB_DBMS=mssql
+      - AI_FM_DB_HOST=192.168.150.30
+      - AI_FM_DB_PORT=1433
+      - AI_FM_DB_DB=HBEdu_App_Study
+      - AI_FM_DB_USER=AiSystem
+      - AI_FM_DB_PASSWD=Jn!@Ea_$$Aqll6J(JumkDq
+      - USER=fm
+      - TZ=Asia/Seoul
+    restart: unless-stopped
+    depends_on:
+      - rabbitmq
+  fm-api-sc-weak-lecture:
+    image: 183.110.210.106:5000/fm-api:latest
+    container_name: fm-api-sc-weak-lecture
+    ports:
+      - "3008:3000"
+    command: bash -c "cd /data/fm/fm-api && python ./server.py"
+    environment:
+      - AI_FM_URL=/rs/sc/weak/lecture
+      - AI_FM_SANIC_MODE=PRODUCTION
+      - AI_FM_DB_DBMS=mssql
+      - AI_FM_DB_HOST=192.168.150.30
+      - AI_FM_DB_PORT=1433
+      - AI_FM_DB_DB=HBEdu_App_Study
+      - AI_FM_DB_USER=AiSystem
+      - AI_FM_DB_PASSWD=Jn!@Ea_$$Aqll6J(JumkDq
+      - USER=fm
+      - TZ=Asia/Seoul
+    restart: unless-stopped
+    depends_on:
+      - rabbitmq
+  fm-api-sc-weak-mat:
+    image: 183.110.210.106:5000/fm-api:latest
+    container_name: fm-api-sc-weak-mat
+    ports:
+      - "3009:3000"
+    command: bash -c "cd /data/fm/fm-api && python ./server.py"
+    environment:
+      - AI_FM_URL=/rs/sc/weak/mat
+      - AI_FM_SANIC_MODE=PRODUCTION
+      - AI_FM_DB_DBMS=mssql
+      - AI_FM_DB_HOST=192.168.150.30
+      - AI_FM_DB_PORT=1433
+      - AI_FM_DB_DB=HBEdu_App_Study
+      - AI_FM_DB_USER=AiSystem
+      - AI_FM_DB_PASSWD=Jn!@Ea_$$Aqll6J(JumkDq
+      - USER=fm
+      - TZ=Asia/Seoul
+    restart: unless-stopped
+    depends_on:
+      - rabbitmq
+  fm-api-so-weak-lecture:
+    image: 183.110.210.106:5000/fm-api:latest
+    container_name: fm-api-so-weak-lecture
+    ports:
+      - "3010:3000"
+    command: bash -c "cd /data/fm/fm-api && python ./server.py"
+    environment:
+      - AI_FM_URL=/rs/so/weak/lecture
+      - AI_FM_SANIC_MODE=PRODUCTION
+      - AI_FM_DB_DBMS=mssql
+      - AI_FM_DB_HOST=192.168.150.30
+      - AI_FM_DB_PORT=1433
+      - AI_FM_DB_DB=HBEdu_App_Study
+      - AI_FM_DB_USER=AiSystem
+      - AI_FM_DB_PASSWD=Jn!@Ea_$$Aqll6J(JumkDq
+      - USER=fm
+      - TZ=Asia/Seoul
+    restart: unless-stopped
+    depends_on:
+      - rabbitmq
+  fm-api-so-weak-mat:
+    image: 183.110.210.106:5000/fm-api:latest
+    container_name: fm-api-so-weak-mat
+    ports:
+      - "3011:3000"
+    command: bash -c "cd /data/fm/fm-api && python ./server.py"
+    environment:
+      - AI_FM_URL=/rs/so/weak/mat
+      - AI_FM_SANIC_MODE=PRODUCTION
+      - AI_FM_DB_DBMS=mssql
+      - AI_FM_DB_HOST=192.168.150.30
+      - AI_FM_DB_PORT=1433
+      - AI_FM_DB_DB=HBEdu_App_Study
+      - AI_FM_DB_USER=AiSystem
+      - AI_FM_DB_PASSWD=Jn!@Ea_$$Aqll6J(JumkDq
+      - USER=fm
+      - TZ=Asia/Seoul
+    restart: unless-stopped
+    depends_on:
+      - rabbitmq
+  rabbitmq:
+    image: rabbitmq:3.8-management-alpine
+    hostname: rabbitmq
+    environment:
+      - TZ=Asia/Seoul
+    restart: unless-stopped

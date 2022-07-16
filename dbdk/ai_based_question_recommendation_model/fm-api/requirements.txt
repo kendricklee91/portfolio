@@ -1,0 +1,8 @@
+celery==4.4.7
+flower==0.9.4
+mysql-connector-python==8.0.22
+numpy==1.19.4
+pandas==1.2.0
+pyodbc==4.0.30
+sanic==20.12.1
+sentry-sdk==0.19.5

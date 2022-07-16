@@ -1,0 +1,8 @@
+version: '3'
+services:
+  fm-batch:
+    build: .
+    container_name: fm-batch
+    volumes:
+      - .:/data/fm/fm-batch
+    tty: true

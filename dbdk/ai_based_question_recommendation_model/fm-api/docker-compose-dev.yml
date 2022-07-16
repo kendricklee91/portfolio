@@ -1,0 +1,129 @@
+version: '3'
+services:
+  celery:
+    tty: true
+  fm-api-en-weak-lecture:
+    tty: true
+    environment:
+      - USER=celery
+      - TZ=Asia/Seoul
+  fm-api-en-weak-mat:
+    tty: true
+    environment:
+      - AI_FM_URL=/rs/en/weak/mat
+      - AI_FM_SANIC_MODE=DEBUG
+      - AI_FM_DB_DBMS=mssql
+      - AI_FM_DB_HOST=192.168.150.50
+      - AI_FM_DB_PORT=21433
+      - AI_FM_DB_DB=HBEdu_App_Study
+      - AI_FM_DB_USER=dbdk
+      - AI_FM_DB_PASSWD=Vf!(98vP$$@A_0LBR0I0aA
+      - TZ=Asia/Seoul
+  fm-api-ko-weak-lecture:
+    tty: true
+    environment:
+      - AI_FM_URL=/rs/ko/weak/lecture
+      - AI_FM_SANIC_MODE=DEBUG
+      - AI_FM_DB_DBMS=mssql
+      - AI_FM_DB_HOST=192.168.150.50
+      - AI_FM_DB_PORT=21433
+      - AI_FM_DB_DB=HBEdu_App_Study
+      - AI_FM_DB_USER=dbdk
+      - AI_FM_DB_PASSWD=Vf!(98vP$$@A_0LBR0I0aA
+      - TZ=Asia/Seoul
+  fm-api-ko-weak-mat:
+    tty: true
+    environment:
+      - AI_FM_URL=/rs/ko/weak/mat
+      - AI_FM_SANIC_MODE=DEBUG
+      - AI_FM_DB_DBMS=mssql
+      - AI_FM_DB_HOST=192.168.150.50
+      - AI_FM_DB_PORT=21433
+      - AI_FM_DB_DB=HBEdu_App_Study
+      - AI_FM_DB_USER=dbdk
+      - AI_FM_DB_PASSWD=Vf!(98vP$$@A_0LBR0I0aA
+      - TZ=Asia/Seoul
+  fm-api-ma-prior:
+    tty: true
+    environment:
+      - AI_FM_URL=/rs/ma/prior
+      - AI_FM_SANIC_MODE=DEBUG
+      - AI_FM_DB_DBMS=mssql
+      - AI_FM_DB_HOST=192.168.150.50
+      - AI_FM_DB_PORT=21433
+      - AI_FM_DB_DB=HBEdu_App_Study
+      - AI_FM_DB_USER=dbdk
+      - AI_FM_DB_PASSWD=Vf!(98vP$$@A_0LBR0I0aA
+      - TZ=Asia/Seoul
+  fm-api-ma-weak-lecture:
+    tty: true
+    environment:
+      - AI_FM_URL=/rs/ma/weak/lecture
+      - AI_FM_SANIC_MODE=DEBUG
+      - AI_FM_DB_DBMS=mssql
+      - AI_FM_DB_HOST=192.168.150.50
+      - AI_FM_DB_PORT=21433
+      - AI_FM_DB_DB=HBEdu_App_Study
+      - AI_FM_DB_USER=dbdk
+      - AI_FM_DB_PASSWD=Vf!(98vP$$@A_0LBR0I0aA
+      - TZ=Asia/Seoul
+  fm-api-ma-weak-mat:
+    tty: true
+    environment:
+      - AI_FM_URL=/rs/ma/weak/mat
+      - AI_FM_SANIC_MODE=DEBUG
+      - AI_FM_DB_DBMS=mssql
+      - AI_FM_DB_HOST=192.168.150.50
+      - AI_FM_DB_PORT=21433
+      - AI_FM_DB_DB=HBEdu_App_Study
+      - AI_FM_DB_USER=dbdk
+      - AI_FM_DB_PASSWD=Vf!(98vP$$@A_0LBR0I0aA
+      - TZ=Asia/Seoul
+  fm-api-sc-weak-lecture:
+    tty: true
+    environment:
+      - AI_FM_URL=/rs/sc/weak/lecture
+      - AI_FM_SANIC_MODE=DEBUG
+      - AI_FM_DB_DBMS=mssql
+      - AI_FM_DB_HOST=192.168.150.50
+      - AI_FM_DB_PORT=21433
+      - AI_FM_DB_DB=HBEdu_App_Study
+      - AI_FM_DB_USER=dbdk
+      - AI_FM_DB_PASSWD=Vf!(98vP$$@A_0LBR0I0aA
+      - TZ=Asia/Seoul
+  fm-api-sc-weak-mat:
+    tty: true
+    environment:
+      - AI_FM_URL=/rs/sc/weak/mat
+      - AI_FM_SANIC_MODE=DEBUG
+      - AI_FM_DB_DBMS=mssql
+      - AI_FM_DB_HOST=192.168.150.50
+      - AI_FM_DB_PORT=21433
+      - AI_FM_DB_DB=HBEdu_App_Study
+      - AI_FM_DB_USER=dbdk
+      - AI_FM_DB_PASSWD=Vf!(98vP$$@A_0LBR0I0aA
+      - TZ=Asia/Seoul
+  fm-api-so-weak-lecture:
+    tty: true
+    environment:
+      - AI_FM_URL=/rs/so/weak/lecture
+      - AI_FM_SANIC_MODE=DEBUG
+      - AI_FM_DB_DBMS=mssql
+      - AI_FM_DB_HOST=192.168.150.50
+      - AI_FM_DB_PORT=21433
+      - AI_FM_DB_DB=HBEdu_App_Study
+      - AI_FM_DB_USER=dbdk
+      - AI_FM_DB_PASSWD=Vf!(98vP$$@A_0LBR0I0aA
+      - TZ=Asia/Seoul
+  fm-api-so-weak-mat:
+    tty: true
+    environment:
+      - AI_FM_URL=/rs/so/weak/mat
+      - AI_FM_SANIC_MODE=DEBUG
+      - AI_FM_DB_DBMS=mssql
+      - AI_FM_DB_HOST=192.168.150.50
+      - AI_FM_DB_PORT=21433
+      - AI_FM_DB_DB=HBEdu_App_Study
+      - AI_FM_DB_USER=dbdk
+      - AI_FM_DB_PASSWD=Vf!(98vP$$@A_0LBR0I0aA
+      - TZ=Asia/Seoul

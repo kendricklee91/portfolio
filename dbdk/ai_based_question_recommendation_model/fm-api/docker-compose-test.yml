@@ -1,0 +1,129 @@
+version: '3'
+services:
+  celery:
+    command: bash -c "cd /data/fm/fm-api && celery -A worker worker -c128 --max-tasks-per-child=1 --time-limit=300 --soft-time-limit=180 --loglevel=info"
+  fm-api-en-weak-lecture:
+    command: bash -c "cd /data/fm/fm-api && python ./server.py"
+    environment:
+      - USER=celery
+      - TZ=Asia/Seoul
+  fm-api-en-weak-mat:
+    command: bash -c "cd /data/fm/fm-api && python ./server.py"
+    environment:
+      - AI_FM_URL=/rs/en/weak/mat
+      - AI_FM_SANIC_MODE=DEBUG
+      - AI_FM_DB_DBMS=mssql
+      - AI_FM_DB_HOST=192.168.150.30
+      - AI_FM_DB_PORT=1433
+      - AI_FM_DB_DB=HBEdu_App_Study
+      - AI_FM_DB_USER=AiSystem
+      - AI_FM_DB_PASSWD=Jn!@Ea_$$Aqll6J(JumkDq
+      - TZ=Asia/Seoul
+  fm-api-ko-weak-lecture:
+    command: bash -c "cd /data/fm/fm-api && python ./server.py"
+    environment:
+      - AI_FM_URL=/rs/ko/weak/lecture
+      - AI_FM_SANIC_MODE=DEBUG
+      - AI_FM_DB_DBMS=mssql
+      - AI_FM_DB_HOST=192.168.150.30
+      - AI_FM_DB_PORT=1433
+      - AI_FM_DB_DB=HBEdu_App_Study
+      - AI_FM_DB_USER=AiSystem
+      - AI_FM_DB_PASSWD=Jn!@Ea_$$Aqll6J(JumkDq
+      - TZ=Asia/Seoul
+  fm-api-ko-weak-mat:
+    command: bash -c "cd /data/fm/fm-api && python ./server.py"
+    environment:
+      - AI_FM_URL=/rs/ko/weak/mat
+      - AI_FM_SANIC_MODE=DEBUG
+      - AI_FM_DB_DBMS=mssql
+      - AI_FM_DB_HOST=192.168.150.30
+      - AI_FM_DB_PORT=1433
+      - AI_FM_DB_DB=HBEdu_App_Study
+      - AI_FM_DB_USER=AiSystem
+      - AI_FM_DB_PASSWD=Jn!@Ea_$$Aqll6J(JumkDq
+      - TZ=Asia/Seoul
+  fm-api-ma-prior:
+    command: bash -c "cd /data/fm/fm-api && python ./server.py"
+    environment:
+      - AI_FM_URL=/rs/ma/prior
+      - AI_FM_SANIC_MODE=DEBUG
+      - AI_FM_DB_DBMS=mssql
+      - AI_FM_DB_HOST=192.168.150.30
+      - AI_FM_DB_PORT=1433
+      - AI_FM_DB_DB=HBEdu_App_Study
+      - AI_FM_DB_USER=AiSystem
+      - AI_FM_DB_PASSWD=Jn!@Ea_$$Aqll6J(JumkDq
+      - TZ=Asia/Seoul
+  fm-api-ma-weak-lecture:
+    command: bash -c "cd /data/fm/fm-api && python ./server.py"
+    environment:
+      - AI_FM_URL=/rs/ma/weak/lecture
+      - AI_FM_SANIC_MODE=DEBUG
+      - AI_FM_DB_DBMS=mssql
+      - AI_FM_DB_HOST=192.168.150.30
+      - AI_FM_DB_PORT=1433
+      - AI_FM_DB_DB=HBEdu_App_Study
+      - AI_FM_DB_USER=AiSystem
+      - AI_FM_DB_PASSWD=Jn!@Ea_$$Aqll6J(JumkDq
+      - TZ=Asia/Seoul
+  fm-api-ma-weak-mat:
+    command: bash -c "cd /data/fm/fm-api && python ./server.py"
+    environment:
+      - AI_FM_URL=/rs/ma/weak/mat
+      - AI_FM_SANIC_MODE=DEBUG
+      - AI_FM_DB_DBMS=mssql
+      - AI_FM_DB_HOST=192.168.150.30
+      - AI_FM_DB_PORT=1433
+      - AI_FM_DB_DB=HBEdu_App_Study
+      - AI_FM_DB_USER=AiSystem
+      - AI_FM_DB_PASSWD=Jn!@Ea_$$Aqll6J(JumkDq
+      - TZ=Asia/Seoul
+  fm-api-sc-weak-lecture:
+    command: bash -c "cd /data/fm/fm-api && python ./server.py"
+    environment:
+      - AI_FM_URL=/rs/sc/weak/lecture
+      - AI_FM_SANIC_MODE=DEBUG
+      - AI_FM_DB_DBMS=mssql
+      - AI_FM_DB_HOST=192.168.150.30
+      - AI_FM_DB_PORT=1433
+      - AI_FM_DB_DB=HBEdu_App_Study
+      - AI_FM_DB_USER=AiSystem
+      - AI_FM_DB_PASSWD=Jn!@Ea_$$Aqll6J(JumkDq
+      - TZ=Asia/Seoul
+  fm-api-sc-weak-mat:
+    command: bash -c "cd /data/fm/fm-api && python ./server.py"
+    environment:
+      - AI_FM_URL=/rs/sc/weak/mat
+      - AI_FM_SANIC_MODE=DEBUG
+      - AI_FM_DB_DBMS=mssql
+      - AI_FM_DB_HOST=192.168.150.30
+      - AI_FM_DB_PORT=1433
+      - AI_FM_DB_DB=HBEdu_App_Study
+      - AI_FM_DB_USER=AiSystem
+      - AI_FM_DB_PASSWD=Jn!@Ea_$$Aqll6J(JumkDq
+      - TZ=Asia/Seoul
+  fm-api-so-weak-lecture:
+    command: bash -c "cd /data/fm/fm-api && python ./server.py"
+    environment:
+      - AI_FM_URL=/rs/so/weak/lecture
+      - AI_FM_SANIC_MODE=DEBUG
+      - AI_FM_DB_DBMS=mssql
+      - AI_FM_DB_HOST=192.168.150.30
+      - AI_FM_DB_PORT=1433
+      - AI_FM_DB_DB=HBEdu_App_Study
+      - AI_FM_DB_USER=AiSystem
+      - AI_FM_DB_PASSWD=Jn!@Ea_$$Aqll6J(JumkDq
+      - TZ=Asia/Seoul
+  fm-api-so-weak-mat:
+    command: bash -c "cd /data/fm/fm-api && python ./server.py"
+    environment:
+      - AI_FM_URL=/rs/so/weak/mat
+      - AI_FM_SANIC_MODE=DEBUG
+      - AI_FM_DB_DBMS=mssql
+      - AI_FM_DB_HOST=192.168.150.30
+      - AI_FM_DB_PORT=1433
+      - AI_FM_DB_DB=HBEdu_App_Study
+      - AI_FM_DB_USER=AiSystem
+      - AI_FM_DB_PASSWD=Jn!@Ea_$$Aqll6J(JumkDq
+      - TZ=Asia/Seoul

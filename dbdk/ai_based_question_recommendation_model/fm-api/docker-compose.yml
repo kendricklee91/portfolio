@@ -1,0 +1,105 @@
+version: '3'
+services:
+  celery:
+    image: .
+    container_name: celery
+    ports:
+      - "5555:5555"
+    environment:
+      - TZ=Asia/Seoul
+    depends_on:
+      - rabbitmq
+      - fm-api-en-weak-lecture
+      - fm-api-en-weak-mat
+      - fm-api-ko-weak-lecture
+      - fm-api-ko-weak-mat
+      - fm-api-ma-prior
+      - fm-api-ma-weak-lecture
+      - fm-api-ma-weak-mat
+      - fm-api-so-weak-lecture
+      - fm-api-so-weak-mat
+      - fm-api-sc-weak-lecture
+      - fm-api-sc-weak-mat
+  fm-api-en-weak-lecture:
+    build: .
+    container_name: fm-api-en-weak-lecture
+    ports:
+      - "3001:3000"
+    depends_on:
+      - rabbitmq
+  fm-api-en-weak-mat:
+    build: .
+    container_name: fm-api-en-weak-mat
+    ports:
+      - "3002:3000"
+    depends_on:
+      - rabbitmq
+  fm-api-ko-weak-lecture:
+    build: .
+    container_name: fm-api-ko-weak-lecture
+    ports:
+      - "3003:3000"
+    depends_on:
+      - rabbitmq
+  fm-api-ko-weak-mat:
+    build: .
+    container_name: fm-api-ko-weak-mat
+    ports:
+      - "3004:3000"
+    depends_on:
+      - rabbitmq
+  fm-api-ma-prior:
+    build: .
+    container_name: fm-api-ma-prior
+    ports:
+      - "3005:3000"
+    depends_on:
+      - rabbitmq
+  fm-api-ma-weak-lecture:
+    build: .
+    container_name: fm-api-ma-weak-lecture
+    ports:
+      - "3006:3000"
+    depends_on:
+      - rabbitmq
+  fm-api-ma-weak-mat:
+    build: .
+    container_name: fm-api-ma-weak-mat
+    ports:
+      - "3007:3000"
+    depends_on:
+      - rabbitmq
+  fm-api-sc-weak-lecture:
+    build: .
+    container_name: fm-api-sc-weak-lecture
+    ports:
+      - "3008:3000"
+    depends_on:
+      - rabbitmq
+  fm-api-sc-weak-mat:
+    build: .
+    container_name: fm-api-sc-weak-mat
+    ports:
+      - "3009:3000"
+    depends_on:
+      - rabbitmq
+  fm-api-so-weak-lecture:
+    build: .
+    container_name: fm-api-so-weak-lecture
+    ports:
+      - "3010:3000"
+    depends_on:
+      - rabbitmq
+  fm-api-so-weak-mat:
+    build: .
+    container_name: fm-api-so-weak-mat
+    ports:
+      - "3011:3000"
+    depends_on:
+      - rabbitmq
+  rabbitmq:
+    image: rabbitmq:3.8-management-alpine
+    hostname: rabbitmq
+    environment:
+      - TZ=Asia/Seoul
+    restart: unless-stopped
