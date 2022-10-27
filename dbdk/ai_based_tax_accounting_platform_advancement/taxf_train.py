@@ -19,7 +19,7 @@ def train():
     model_account.thresh_per_cls()
 
     # 회계 공제 여부
-    model_dedu = Model(df, target = 'CD_DECU')
+    model_dedu = Model(df, target = 'CD_DEDU')
 
     if config.TUNING:
         model_dedu.param_tuning()
